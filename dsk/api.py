@@ -206,8 +206,8 @@ class DeepSeekAPI:
                     choice = data['choices'][0]
                     if 'delta' in choice:
                         delta = choice['delta']
-                        
                         return {
+                            'message_id': data.get('message_id'),
                             'content': delta.get('content', ''),
                             'type': delta.get('type', ''),
                             'finish_reason': choice.get('finish_reason')
